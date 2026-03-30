@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Launch EC2 Instance</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #0f172a;
+  color: white;
+}
+
+/* Navbar */
+nav {
+  background: #020617;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+}
+nav h2 { color: #38bdf8; }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+}
+.hero h1 {
+  font-size: 40px;
+}
+.hero button {
+  padding: 12px 25px;
+  border: none;
+  background: #38bdf8;
+  color: black;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* Steps */
+.container {
+  padding: 40px;
+}
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+}
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Progress */
+.progress {
+  margin-top: 30px;
+  height: 20px;
+  background: #334155;
+  border-radius: 10px;
+}
+.bar {
+  height: 100%;
+  width: 0%;
+  background: #22c55e;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #020617;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h2>AWS EC2 Launcher</h2>
+</nav>
+
+<section class="hero">
+  <h1>Launch EC2 Instance</h1>
+  <p>Simulate AWS EC2 instance creation step-by-step</p>
+  <button onclick="startLaunch()">Start Launch</button>
+</section>
+
+<section class="container">
+  <div class="steps">
+    <div class="card">1. Choose AMI (Amazon Machine Image)</div>
+    <div class="card">2. Select Instance Type</div>
+    <div class="card">3. Configure Instance Details</div>
+    <div class="card">4. Add Storage</div>
+    <div class="card">5. Configure Security Group</div>
+    <div class="card">6. Launch Instance</div>
+  </div>
+
+  <div class="progress">
+    <div class="bar" id="bar"></div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 EC2 Simulation Website</p>
+</footer>
+
+<script>
+let progress = 0;
+
+function startLaunch() {
+  progress = 0;
+  let bar = document.getElementById("bar");
+
+  let interval = setInterval(() => {
+    progress += 10;
+    bar.style.width = progress + "%";
+
+    if (progress >= 100) {
+      clearInterval(interval);
+      alert("EC2 Instance Launched Successfully 🚀");
+    }
+  }, 500);
+}
+</script>
+
+</body>
+</html>
